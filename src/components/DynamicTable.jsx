@@ -6,11 +6,9 @@ const DynamicTable = () => {
   const columns = useSelector(state => state.table.columns);
   const dataSource = useSelector(state => state.table.dataSource);
 
-  // Memoize columns and dataSource to optimize performance
   const memoizedColumns = useMemo(() => columns, [columns]);
   const memoizedDataSource = useMemo(() => dataSource, [dataSource]);
 
-  // Define the rowHeaderColumn for the left fixed column
   const rowHeaderColumn = useMemo(() => ({
     title: 'Row Header',
     dataIndex: 'rowHeader',
@@ -30,7 +28,6 @@ const DynamicTable = () => {
     }),
   }), []);
 
-  // Memoize combined columns for performance
   const combinedColumns = useMemo(() => {
     const mappedColumns = memoizedColumns.map(column => ({
       ...column,
@@ -40,12 +37,11 @@ const DynamicTable = () => {
     return [rowHeaderColumn, ...mappedColumns];
   }, [memoizedColumns, rowHeaderColumn]);
 
-  // Memoize dataSource with customized row rendering
   const memoizedRenderDataSource = useMemo(() => {
     return memoizedDataSource.map((record, index) => ({
       ...record,
-      key: `row-${index}`, // Add a unique key for each row
-      rowHeader: record.key, // Assign rowHeader for the left fixed column
+      key: `row-${index}`, 
+      rowHeader: record.key, 
       style: {
         fontWeight: record.style?.fontWeight,
         fontStyle: record.style?.fontStyle,
