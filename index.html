@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  <style>
+   .ant-table-thead > tr > th {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.ant-table-cell {
+  white-space: nowrap;
+  text-align: center;
+}
+
+.ant-table {
+  border-collapse: collapse;
+}
+
+.ant-table-cell::before {
+  display: none;
+}
+
+.depth-0 .ant-table-cell {
+  font-weight: bold;
+  background-color: #b80808;
+}
+
+.depth-1 .ant-table-cell {
+  padding-left: 20px;
+  background-color: #20a100;
+
+}
+
+.depth-2 .ant-table-cell {
+  padding-left: 40px;
+  background-color: #070202;
+
+}
+
+/* Additional styles for deeper levels if necessary */
+
+  </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
